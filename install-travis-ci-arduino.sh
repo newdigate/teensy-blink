@@ -41,7 +41,7 @@ echo "########################################################################";
 
 
 if [ ! -f $HOME/arduino_ide/hardware/tools/arm ]; then
-mkdir $HOME/arduino_ide/hardware/tools/arm
+mkdir -p $HOME/arduino_ide/hardware/tools/arm
 cd $HOME/arduino_ide/hardware/tools/arm
 wget --quiet -O gccarmnoneeabi542016q220160622linux.tar.bz2 https://developer.arm.com/-/media/Files/downloads/gnu-rm/5_4-2016q2/gccarmnoneeabi542016q220160622linuxtar.bz2?revision=8f445a99-c1ae-4ed8-9eb8-f41929a671c4?product=GNU-RM%20Downloads,32-bit,,Linux,5-2016-q2-update
 tar xjf gccarmnoneeabi542016q220160622linux.tar.bz2
