@@ -57,8 +57,8 @@ else
 echo $teensydir already exists
 fi
 
-ls $teensydir
-tree $teensydir
+ls -lrt $teensydir
+ls -lrt $teensydir/bin
 #cd $HOME/arduino_ide/hardware/tools/arm
  
 echo -e "\n########################################################################";
@@ -106,13 +106,6 @@ export PATH="$HOME/arduino_ide:$PATH"
 echo -e "\n########################################################################";
 echo -e "${YELLOW} LIST CONTENTS OF HARDWARE"
 echo "########################################################################";
-
-ls $teensydir
-
-echo -e "\n########################################################################";
-echo -e "${YELLOW}INSTALLING DEPENDENCIES"
-echo "########################################################################";
-
 
 # install the due, esp8266, and adafruit board packages
 echo -n "ADD PACKAGE INDEX: "
