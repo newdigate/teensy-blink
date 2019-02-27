@@ -40,7 +40,7 @@ echo -e "${YELLOW}INSTALLING arm-none-eabi"
 echo "########################################################################";
 
 echo -e $PWD
-origdir=$(PWD)
+origdir=$PWD
 if [ ! -f $HOME/arduino_ide/hardware/tools/arm ]; then
 mkdir -p $HOME/arduino_ide/hardware/tools/arm
 cd $HOME/arduino_ide/hardware/tools/arm
