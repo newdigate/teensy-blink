@@ -210,8 +210,11 @@ function build_platform()
     ))
     echo -n $examples
   else
+    echo -n "current dir:"
+    echo -n $PWD
+    find $PWD -name "*.ino" -o -name "*.pdb"
     # loop through results and add them to the array
-    examples=($(find $PWD/.. -name "*.pde" -o -name "*.ino"))
+    examples=($(find $PWD -name "*.pde" -o -name "*.ino"))
     echo -n "regular example search"
     echo $examples
   fi
