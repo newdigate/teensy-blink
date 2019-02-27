@@ -41,20 +41,22 @@ echo "########################################################################";
 
 echo -e $PWD
 origdir=$PWD
-if [ ! -f $HOME/arduino_ide/hardware/tools/arm ]; then
-mkdir -p $HOME/arduino_ide/hardware/tools/arm
-cd $HOME/arduino_ide/hardware/tools/arm
+teensydir=$HOME/travis/.arduino15/packages/teensy/hardware/tools/arm
+
+if [ ! -f $teensydir ]; then
+mkdir -p $teensydir
+cd $teensydir
 wget --quiet -O gccarmnoneeabi542016q220160622linux.tar.bz2 https://developer.arm.com/-/media/Files/downloads/gnu-rm/5_4-2016q2/gccarmnoneeabi542016q220160622linuxtar.bz2?revision=8f445a99-c1ae-4ed8-9eb8-f41929a671c4?product=GNU-RM%20Downloads,32-bit,,Linux,5-2016-q2-update
 tar xjf gccarmnoneeabi542016q220160622linux.tar.bz2
 mv gcc-arm-none-eabi-5_4-2016q2/* .
 rm -rf gcc-arm-none-eabi-5_4-2016q2
 rm gccarmnoneeabi542016q220160622linux.tar.bz2
-#cd $origdir
+cd $origdir
 else
 echo $HOME/arduino_ide/hardware/tools/arm already exists
 fi
 
-cd $HOME/arduino_ide/hardware/tools/arm
+#cd $HOME/arduino_ide/hardware/tools/arm
  
 echo -e "\n########################################################################";
 echo -e "${YELLOW}INSTALLING ARDUINO IDE"
@@ -102,7 +104,7 @@ echo -e "\n#####################################################################
 echo -e "${YELLOW} LIST CONTENTS OF HARDWARE"
 echo "########################################################################";
 
-ls $HOME/arduino_ide/hardware/tools
+ls $teensydir
 
 echo -e "\n########################################################################";
 echo -e "${YELLOW}INSTALLING DEPENDENCIES"
