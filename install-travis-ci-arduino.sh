@@ -93,8 +93,8 @@ echo -n "ADAFRUIT SAMD: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards adafruit:samd 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
-echo -n "TEENSY: "
-DEPENDENCY_OUTPUT=$(arduino --install-boards teensy:samd 2>&1)
+echo -n "TEENSYDUINO: "
+DEPENDENCY_OUTPUT=$(arduino --install-boards Teensyduino:arm 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
 echo -e "\n########################################################################";
