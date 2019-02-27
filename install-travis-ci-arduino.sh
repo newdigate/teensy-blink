@@ -198,6 +198,7 @@ function build_platform()
   declare -a examples
 
   if [ "$PLATFORM_CHECK_ONLY_ON_FILE" = true ]; then
+    echo -n "platform specific example search"
     # loop through results and add them to the array
     examples=($(
       for f in $(find . -type f -iname '*.ino' -o -iname '*.pde'); do
@@ -207,9 +208,12 @@ function build_platform()
         fi
       done
     ))
+    echo -n $examples
   else
     # loop through results and add them to the array
     examples=($(find $PWD/.. -name "*.pde" -o -name "*.ino"))
+    echo -n "regular example search"
+    echo $examples
   fi
 
   # get the last example in the array
