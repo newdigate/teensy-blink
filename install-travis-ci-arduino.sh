@@ -10,7 +10,7 @@ fi
 # this will be eval'd in the functions below because arrays can't be exported
 # Uno is ATmega328, Zero is SAMD21G18, ESP8266, Leonardo is ATmega32u4, M4 is SAMD51, Mega is ATmega2560, ESP32
 # export MAIN_PLATFORMS='declare -A main_platforms=( [teensy]="teensy:avr:teensy36" [uno]="arduino:avr:uno" [due]="arduino:sam:arduino_due_x" [zero]="arduino:samd:arduino_zero_native" [esp8266]="esp8266:esp8266:huzzah:eesz=4M3M,xtal=80" [leonardo]="arduino:avr:leonardo" [m4]="adafruit:samd:adafruit_metro_m4" [mega2560]="arduino:avr:mega:cpu=atmega2560" [esp32]="esp32:esp32:featheresp32:FlashFreq=80" )'
-export MAIN_PLATFORMS='declare -A main_platforms=( [teensy]="teensy:samd:teensy36" [zero]="arduino:samd:arduino_zero_native" [m4]="adafruit:samd:adafruit_metro_m4" )'
+export MAIN_PLATFORMS='declare -A main_platforms=( [teensy]="Teensyduino:arm:teensy36" [zero]="arduino:samd:arduino_zero_native" [m4]="adafruit:samd:adafruit_metro_m4" )'
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
@@ -77,7 +77,7 @@ fi
 export PATH="$HOME/arduino_ide:$PATH"
 
 echo -e "\n########################################################################";
-echo -e "${YELLOW} LIST CONTENTS OF HARDWARE"
+echo -e "${YELLOW} ADDING PACKAGES"
 echo "########################################################################";
 
 # install the due, esp8266, and adafruit board packages
