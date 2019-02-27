@@ -49,7 +49,7 @@ tar xjf gccarmnoneeabi542016q220160622linux.tar.bz2
 mv gcc-arm-none-eabi-5_4-2016q2/* .
 rm -rf gcc-arm-none-eabi-5_4-2016q2
 rm gccarmnoneeabi542016q220160622linux.tar.bz2
-cd $origdir
+#cd $origdir
 else
 echo $HOME/arduino_ide/hardware/tools/arm already exists
 fi
@@ -200,7 +200,7 @@ function build_platform()
   declare -a examples
 
   if [ "$PLATFORM_CHECK_ONLY_ON_FILE" = true ]; then
-    echo -n "platform specific example search"
+    echo -e "platform specific example search"
     # loop through results and add them to the array
     examples=($(
       for f in $(find . -type f -iname '*.ino' -o -iname '*.pde'); do
@@ -210,15 +210,18 @@ function build_platform()
         fi
       done
     ))
-    echo -n $examples
+    echo -e $examples
   else
-    echo -n "current dir:"
-    echo -n $PWD
-    find $PWD -name "*.ino" -o -name "*.pdb"
+    cd /home/travis/build/newdigate/teensy-blink
+    #echo -e "current dir:"
+    #echo -e $PWD
+    
+    # find $PWD -name "*.ino" -o -name "*.pdb"
     # loop through results and add them to the array
     examples=($(find $PWD -name "*.pde" -o -name "*.ino"))
-    echo -n "regular example search"
-    echo $examples
+    #echo -n "regular example search"
+    #echo $examples
+    cd $OLDPWD
   fi
 
   # get the last example in the array
