@@ -53,6 +53,8 @@ rm gccarmnoneeabi542016q220160622linux.tar.bz2
 else
 echo $HOME/arduino_ide/hardware/tools/arm already exists
 fi
+
+cd $HOME/arduino_ide/hardware/tools/arm
  
 echo -e "\n########################################################################";
 echo -e "${YELLOW}INSTALLING ARDUINO IDE"
@@ -212,16 +214,16 @@ function build_platform()
     ))
     echo -e $examples
   else
-    cd /home/travis/build/newdigate/teensy-blink
+    #cd /home/travis/build/newdigate/teensy-blink
     #echo -e "current dir:"
     #echo -e $PWD
     
     # find $PWD -name "*.ino" -o -name "*.pdb"
     # loop through results and add them to the array
-    examples=($(find $PWD -name "*.pde" -o -name "*.ino"))
-    #echo -n "regular example search"
-    #echo $examples
-    cd $OLDPWD
+    examples=($(find $HOME/build/newdigate/teensy-blink -name "*.pde" -o -name "*.ino"))
+    echo -e "regular example search\n"
+    echo -e $examples
+    #cd $OLDPWD
   fi
 
   # get the last example in the array
