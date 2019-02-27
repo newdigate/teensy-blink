@@ -48,10 +48,11 @@ tar xjf gccarmnoneeabi542016q220160622linux.tar.bz2
 mv gcc-arm-none-eabi-5_4-2016q2/* .
 rm -rf gcc-arm-none-eabi-5_4-2016q2
 rm gccarmnoneeabi542016q220160622linux.tar.bz2
+cd $HOME/arduino_ide
 else
 echo $HOME/arduino_ide/hardware/tools/arm already exists
 fi
-
+ 
 echo -e "\n########################################################################";
 echo -e "${YELLOW}INSTALLING ARDUINO IDE"
 echo "########################################################################";
