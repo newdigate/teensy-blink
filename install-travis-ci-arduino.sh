@@ -39,10 +39,10 @@ echo -e "\n#####################################################################
 echo -e "${YELLOW}INSTALLING arm-none-eabi"
 echo "########################################################################";
 
-echo -e $PWD
+#echo -e $PWD
 origdir=$PWD
-mkdir -p $HOME/.arduino15/packages/teensy/hardware/samd
-teensydir=$HOME/.arduino15/packages/teensy/hardware/tools/arm
+
+teensydir=$HOME/arduino_ide/hardware/tools/arm
 echo -e $teensydir
 if [ ! -f $teensydir ]; then
 mkdir -p $teensydir
