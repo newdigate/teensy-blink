@@ -56,6 +56,8 @@ else
 echo $teensydir already exists
 fi
 
+ls $teensydir
+tree $teensydir
 #cd $HOME/arduino_ide/hardware/tools/arm
  
 echo -e "\n########################################################################";
