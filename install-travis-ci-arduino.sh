@@ -34,33 +34,6 @@ export MAIN_PLATFORMS='declare -A main_platforms=( [teensy]="teensy:samd:teensy3
 # define colors
 GRAY='\033[1;30m'; RED='\033[0;31m'; LRED='\033[1;31m'; GREEN='\033[0;32m'; LGREEN='\033[1;32m'; ORANGE='\033[0;33m'; YELLOW='\033[1;33m'; BLUE='\033[0;34m'; LBLUE='\033[1;34m'; PURPLE='\033[0;35m'; LPURPLE='\033[1;35m'; CYAN='\033[0;36m'; LCYAN='\033[1;36m'; LGRAY='\033[0;37m'; WHITE='\033[1;37m';
 
-
-echo -e "\n########################################################################";
-echo -e "${YELLOW}INSTALLING arm-none-eabi"
-echo "########################################################################";
-
-#echo -e $PWD
-origdir=$PWD
-
-teensydir=$HOME/arduino_ide/hardware/tools/arm
-echo -e $teensydir
-if [ ! -f $teensydir ]; then
-mkdir -p $teensydir
-cd $teensydir
-wget -O gccarmnoneeabi542016q220160622linux.tar.bz2 https://developer.arm.com/-/media/Files/downloads/gnu-rm/5_4-2016q2/gccarmnoneeabi542016q220160622linuxtar.bz2?revision=8f445a99-c1ae-4ed8-9eb8-f41929a671c4?product=GNU-RM%20Downloads,32-bit,,Linux,5-2016-q2-update
-tar xjf gccarmnoneeabi542016q220160622linux.tar.bz2
-mv gcc-arm-none-eabi-5_4-2016q2/* .
-rm -rf gcc-arm-none-eabi-5_4-2016q2
-rm gccarmnoneeabi542016q220160622linux.tar.bz2
-cd $origdir
-else
-echo $teensydir already exists
-fi
-
-ls -lrt $teensydir
-ls -lrt $teensydir/bin
-#cd $HOME/arduino_ide/hardware/tools/arm
- 
 echo -e "\n########################################################################";
 echo -e "${YELLOW}INSTALLING ARDUINO IDE"
 echo "########################################################################";
