@@ -1,8 +1,9 @@
 # teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
 
 ## recipe for compiling teensy sketches in jenkins
- * need a url to package_teensyduino_index.json 
-   * allows `arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs`
+ * need a "package_index" url for arduino board-manager
+   * [package_teensyduino_index.json](https://github.com/newdigate/teensy-build/blob/master/package_teensyduino_index.json)
+   * `arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs`
      * adds teensy3.6 to board-manager
    * `arduino --install-boards teensyduino:avr`
      * downloads teensy cores and bundled libraries
