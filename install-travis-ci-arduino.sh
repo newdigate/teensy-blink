@@ -89,7 +89,7 @@ cd $OLDPWD
 
 cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/arm-none-eabi/lib
 rm -r *
-cp -r /home/travis/teensy-build/libs/* . 
+cp -r /home/travis/teensy-build/lib/* . 
 cd $OLDPWD
 
 
