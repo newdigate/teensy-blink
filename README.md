@@ -6,5 +6,7 @@ proof-of-concept repo to see if I can get travis to build teensy code...
 ```
 
 ## links 
+* https://www.pjrc.com/teensy/td_download.html
 * https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
 * https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification
+* https://github.com/arduino/Arduino/blob/master/build/shared/manpage.adoc
