@@ -73,7 +73,9 @@ if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""
 
 cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin
 wget https://github.com/newdigate/teensy-build/raw/master/utils/stdout_redirect
+chmod +x stdout_redirect
 wget https://github.com/newdigate/teensy-build/raw/master/utils/teensy_post_compile
+chmod +x teensy_post_compile
 wget https://raw.githubusercontent.com/PaulStoffregen/precompile_helper/master/precompile_helper.c
 gcc precompile_helper.c -o precompile_helper
 cd $OLDPWD
