@@ -4,3 +4,6 @@ proof-of-concept repo to see if I can get travis to build teensy code...
 ```
 ~/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
 ```
+
+## links 
+* https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
