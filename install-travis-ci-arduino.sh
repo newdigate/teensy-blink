@@ -98,6 +98,20 @@ echo "########################################################################";
 echo -e $PWD
 
 echo -e "\n########################################################################";
+echo -e "${YELLOW} file"
+echo "########################################################################";
+file /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++
+
+echo -e "\n########################################################################";
+echo -e "${YELLOW} dpkg --add-architecture i386"
+echo "########################################################################";
+echo -e $PWD
+
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libc6:i386
+
+echo -e "\n########################################################################";
 echo -e "${YELLOW} PATH"
 echo "########################################################################";
 export PATH=/home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/:$PATH
