@@ -92,6 +92,11 @@ rm -r *
 cp -r /home/travis/teensy-build/lib/* . 
 cd $OLDPWD
 
+echo -e "\n########################################################################";
+echo -e "${YELLOW} /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ --version"
+echo "########################################################################";
+
+/home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ --version
 
 echo -e "\n########################################################################";
 echo -e "${YELLOW} ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin"
