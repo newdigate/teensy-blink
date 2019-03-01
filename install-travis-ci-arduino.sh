@@ -71,11 +71,10 @@ echo -n "TEENSYDUINO: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards teensyduino:avr 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
-echo -e "\n########################################################################";
-echo -e "${YELLOW} find /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/"
-echo "########################################################################";
-
-find /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/
+cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin
+wget https://raw.githubusercontent.com/PaulStoffregen/precompile_helper/master/precompile_helper.c
+gcc precompile_helper.c -o precompile_helper
+cd $OLDPWD
 
 echo -e "\n########################################################################";
 echo -e "${YELLOW} ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin"
