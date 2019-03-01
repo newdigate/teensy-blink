@@ -76,7 +76,7 @@ echo -e "${YELLOW} PATCH gcc-arm-none-eabi libs"
 echo "########################################################################";
 
 cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin
-wget https://raw.githubusercontent.com/PaulStoffregen/precompile_helper/master/precompile_helper.c
+wget --quiet https://raw.githubusercontent.com/PaulStoffregen/precompile_helper/master/precompile_helper.c
 gcc precompile_helper.c -o precompile_helper
 cd $OLDPWD
 
