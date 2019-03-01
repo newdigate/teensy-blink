@@ -63,7 +63,7 @@ echo "########################################################################";
 
 # install the due, esp8266, and adafruit board packages
 echo -n "ADD PACKAGE INDEX: "
-DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls=https://adafruit.github.io/arduino-board-index/package_adafruit_index.json,https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs 2>&1)
+DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs 2>&1)
 if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
 echo -n "TEENSYDUINO: "
@@ -71,8 +71,8 @@ echo -n "TEENSYDUINO: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards teensyduino:avr 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
-echo "find . /home/travis/.arduino15/packages/teensyduino/"
-find . /home/travis/.arduino15/packages/teensyduino/
+echo "find /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/"
+find /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/
 
 echo -e "\n########################################################################";
 echo -e "${YELLOW} LIST CONTENTS OF HARDWARE"
