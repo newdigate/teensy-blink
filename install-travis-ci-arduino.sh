@@ -71,6 +71,9 @@ echo -n "TEENSYDUINO: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards teensyduino:avr 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
+echo "find . /home/travis/.arduino15/packages/teensyduino/"
+find . /home/travis/.arduino15/packages/teensyduino/
+
 echo -e "\n########################################################################";
 echo -e "${YELLOW} LIST CONTENTS OF HARDWARE"
 echo "########################################################################";
