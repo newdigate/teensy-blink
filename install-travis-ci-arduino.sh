@@ -71,27 +71,23 @@ echo -n "TEENSYDUINO: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards teensyduino:avr 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
 
+echo -e "\n########################################################################";
+echo -e "${YELLOW} PATCH gcc-arm-none-eabi libs"
+echo "########################################################################";
+
 cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin
-wget https://github.com/newdigate/teensy-build/raw/master/utils/stdout_redirect
-chmod +x stdout_redirect
-wget https://github.com/newdigate/teensy-build/raw/master/utils/teensy_post_compile
-chmod +x teensy_post_compile
 wget https://raw.githubusercontent.com/PaulStoffregen/precompile_helper/master/precompile_helper.c
 gcc precompile_helper.c -o precompile_helper
 cd $OLDPWD
 
-cd /home/travis/
-mkdir teensy-build
+mkdir /home/travis/arm-none-eabi-teensy-libs
+cd /home/travis/arm-none-eabi-teensy-libs
+git clone https://github.com/newdigate/arm-none-eabi-teensy-libs.git .
 cd $OLDPWD
-
-cd /home/travis/teensy-build
-git clone https://github.com/newdigate/teensy-build.git .
-cd $OLDPWD
-
 
 cd /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/arm-none-eabi/lib
 rm -r *
-cp -r /home/travis/teensy-build/lib/* . 
+cp -r /home/travis/teensy-build/* . 
 cd $OLDPWD
 
 echo -e "\n########################################################################";
@@ -124,37 +120,6 @@ echo -e "${YELLOW} arm-none-eabi-g++ --version"
 echo "########################################################################";
 /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ --version
 
-echo -e "\n########################################################################";
-echo -e "${YELLOW} ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin"
-echo "########################################################################";
-
-ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin
-
-# ls $HOME/arduino_ide/hardware
-
-# This is a hack, we have to install by hand so lets delete it
-# echo "Removing ESP32 cache"
-# rm -rf ~/.arduino15/packages/esp32
-# echo -n "Current packages list:"
-# ls ~/.arduino15/packages/
-
-# echo -n "ESP32: "
-# DEPENDENCY_OUTPUT=$(arduino --install-boards esp32:esp32 2>&1)
-# if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
-
-# echo -n "DUE: "
-# DEPENDENCY_OUTPUT=$(arduino --install-boards arduino:sam 2>&1)
-# if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
-
-
-# echo -n "ESP8266: "
-# DEPENDENCY_OUTPUT=$(arduino --install-boards esp8266:esp8266 2>&1)
-# if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
-
-# echo -n "ADAFRUIT AVR: "
-# DEPENDENCY_OUTPUT=$(arduino --install-boards adafruit:avr 2>&1)
-# if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96 OR CACHED"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
-
 # install random lib so the arduino IDE grabs a new library index
 # see: https://github.com/arduino/Arduino/issues/3535
 echo -n "UPDATE LIBRARY INDEX: "
@@ -165,8 +130,6 @@ if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\x
 echo -n "SET BUILD PREFERENCES: "
 DEPENDENCY_OUTPUT=$(arduino --pref "compiler.warning_level=all" --save-prefs 2>&1)
 if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
-
-set -x
 
 # init the json temp var for the current platform
 export PLATFORM_JSON=""
