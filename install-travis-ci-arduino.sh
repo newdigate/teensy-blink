@@ -125,11 +125,6 @@ echo "########################################################################";
 
 
 echo -e "\n########################################################################";
-echo -e "${YELLOW} cat /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++"
-echo "########################################################################";
-cat /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ 
-
-echo -e "\n########################################################################";
 echo -e "${YELLOW} ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin"
 echo "########################################################################";
 
