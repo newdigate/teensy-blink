@@ -93,10 +93,27 @@ cp -r /home/travis/teensy-build/lib/* .
 cd $OLDPWD
 
 echo -e "\n########################################################################";
+echo -e "${YELLOW} PWD"
+echo "########################################################################";
+echo -e $PWD
+
+echo -e "\n########################################################################";
+echo -e "${YELLOW} PATH"
+echo "########################################################################";
+export PATH=/home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/:$PATH
+echo -e $PATH
+
+echo -e "\n########################################################################";
 echo -e "${YELLOW} /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ --version"
 echo "########################################################################";
 
 /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ --version
+
+
+echo -e "\n########################################################################";
+echo -e "${YELLOW} cat /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++"
+echo "########################################################################";
+cat /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin/arm-none-eabi-g++ 
 
 echo -e "\n########################################################################";
 echo -e "${YELLOW} ls -lrt /home/travis/.arduino15/packages/teensyduino/tools/gcc-arm-none-eabi/5.4.1-2016q2/bin"
@@ -139,6 +156,8 @@ if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\x
 echo -n "SET BUILD PREFERENCES: "
 DEPENDENCY_OUTPUT=$(arduino --pref "compiler.warning_level=all" --save-prefs 2>&1)
 if [ $? -ne 0 ]; then echo -e """$RED""\xe2\x9c\x96"; else echo -e """$GREEN""\xe2\x9c\x93"; fi
+
+set +x
 
 # init the json temp var for the current platform
 export PLATFORM_JSON=""
