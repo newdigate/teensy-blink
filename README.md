@@ -8,7 +8,7 @@
    * `arduino --install-boards teensyduino:avr`
      * downloads teensy cores and bundled libraries
      * downloads arm-none-eabi-gcc 5.4.1 toolchain
-   * `arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
+   * `arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino  `
      * compiles blink.ino sketch for teensy 3.6
  * precompile_helper.c
    * used by teensyduino to cache compiled code
