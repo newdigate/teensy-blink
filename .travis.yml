@@ -15,6 +15,7 @@ matrix:
         - sudo apt-get install libc6:i386
         - curl -fsSL https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64 -o TeensyduinoInstall.linux64
         - chmod +x TeensyduinoInstall.linux64
+        - export DISPLAY=:0.0
         - ./TeensyduinoInstall.linux64 -dir=$HOME/arduino_ide/arduino
         
 notifications:
