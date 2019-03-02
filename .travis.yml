@@ -8,17 +8,17 @@ matrix:
         - wget --quiet https://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
         - mkdir $HOME/arduino_ide
         - tar xf arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz -C $HOME/arduino_ide/ 
-        - touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
+        #- touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
         #- export PATH="$HOME/arduino_ide:$PATH"
         #- sudo dpkg --add-architecture i386
         #- sudo apt-get update
         #- sudo apt-get install libc6:i386
         - curl -fsSL https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64 -o TeensyduinoInstall.linux64
         - chmod +x TeensyduinoInstall.linux64
-        - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
-        - sleep 3
-        - export DISPLAY=:1.0
-        - touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
+        #- /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
+        #- sleep 3
+        #- export DISPLAY=:1.0
+        #- touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
         #- mv $HOME/arduino_ide $HOME/arduino
         #- ln -s $HOME/arduino_ide $HOME/arduino
         #- ls -lrt $HOME/arduino.app/Contents
@@ -26,7 +26,6 @@ matrix:
       script:
        - $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --verify --verbose --board "teensy:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
 
-        
 notifications:
   email:
     on_success: change
