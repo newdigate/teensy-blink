@@ -1,6 +1,7 @@
 # teensy github travis integration quick guide
 **create ```.travis.yaml``` file in root dir of your repo** 
 * substitute ```blink/blink.ino``` with your .ino sketch file
+* if required, add any libraries which are not packaged with teensyduino and/or aduino; eg "Adafruit ST7735 and ST7789 Library" below...
 ``` yaml
 matrix:
   include:
@@ -19,7 +20,6 @@ notifications:
 ```
 
 **create ```build/install-teensyduino-1.45.sh``` file in your repo**
-* don't forget to ```chmod +x build/install-teensyduino-1.45.sh```
 ```
 #!/usr/bin/env bash
 # set -v
