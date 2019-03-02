@@ -1,9 +1,8 @@
 # teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
-* a reference example of a teensy project on github integrated with travis continuous integration
-* a quick guide to implementing travis 
+* a reference example and guide to integrating a teensy project on github with travis continuous integration
 
-## guide to implementing travis in your github repo
-* you need a .travis file (.yaml format, see below) in the root folder of your repository []()
+## guide to integrating your github teensy project with travis 
+* you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
   * specify build agent requirements, dependencies, install scripts
 ``` yaml
 matrix:
@@ -11,9 +10,13 @@ matrix:
     - language: c
       sudo: false
       install:
-        - source <(cat install-travis-ci-arduino.sh)
+        - export ARDUINO_IDE_VERSION="1.8.7"
+        - wget --quiet https://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
+        - tar xf arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz -C $HOME/arduino_ide/
+        - $HOME/arduino_ide/arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs
+        - $HOME/arduino_ide/arduino --install-boards teensyduino:avr
       script:
-        - build_main_platforms
+        - $HOME/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
         
 notifications:
   email:
