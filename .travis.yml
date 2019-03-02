@@ -19,7 +19,7 @@ matrix:
         - sleep 3
         - export DISPLAY=:1.0
         - touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
-        - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/$ARDUINO_IDE_VERSION
+        - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino
       script:
        - $HOME/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
 
