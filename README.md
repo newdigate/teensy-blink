@@ -6,7 +6,7 @@ When you make/push any changes to a branch of your repo on github, travis will f
 ## Guide to integrating your github teensy project with travis 
 Firstly, you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
 
-The .travis.yaml file allows you to specify build agent requirements, dependencies, install scripts for your repo:
+The .travis.yaml file allows you to specify build agent requirements, dependencies, install scripts for your repo: **(this example does NOT work, just ideal world scenario)**
 ``` yaml
 matrix:
   include:
@@ -41,6 +41,10 @@ but unfortunately, was not able to get it working... (perhaps its wrong architec
 Can't open display: 
 The command "./TeensyduinoInstall.linux64 -dir=$HOME/arduino_ide/arduino" failed and exited with 1 during .
 ```
+
+So after many attempts, I crafted [platforms_teensyduino_index.json](https://github.com/newdigate/teensy-build/blob/master/package_teensyduino_index.json) which defines teensyduino:avr set of boards (It should be teensyduino:sam for teensy36 I think, but since the cores are stored under avr in teensyduino, its convenient... ) and references gcc-arm-none-eabi c++ toolcahin from https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads/5-2016-q2-update using arduinos built in tool management system. 
+
+
 
 ### some notes
  * need a "package_index" url for arduino board-manager
