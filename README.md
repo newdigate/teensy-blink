@@ -3,6 +3,9 @@ A reference example and guide to integrating a teensy project on github with tra
 
 A quick-guide to integrating a teensy 3.x github repo with travis is here... [Quick guide](quick-guide.md)
 
+## Other projects using teensy-build 
+* [teensy-midi-looper](https://github.com/newdigate/teensy-midi-looper) [![Travis CI status](https://travis-ci.org/newdigate/teensy-midi-looper.svg?branch=master)](https://travis-ci.org/newdigate/teensy-midi-looper)
+
 ## General idea of continuous integration
 When you make/push any changes to a branch of your repo on github, travis will fetch download the branch with changes and trigger a build.  
 
