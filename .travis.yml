@@ -18,6 +18,7 @@ matrix:
         - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
         - sleep 3
         - export DISPLAY=:1.0
+        - touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
         - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide
       script:
        - $HOME/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
