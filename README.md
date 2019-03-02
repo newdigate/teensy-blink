@@ -55,7 +55,7 @@ So after many revisions, I crafted a [platforms_teensyduino_index.json](https://
 ### gcc-arm-none-eabi libs are soft fpu compiled, not hard fpu.
 Unfortunately, the libraries for linking c++ std libraries, which are bundled with gcc-arm-none-eabi 5.4.1-2016q2, are compiled for software floating point unit (fpu) and not hardware fpu; I have created a github repo containing the hardware-fpu-linked libraries [arm-none-eabi-teensy-libs](https://github.com/newdigate/arm-none-eabi-teensy-libs) which I copied from teensyduino tools/arm folder. 
 
-# gcc-arm-none-eabi is i386 arch
+### gcc-arm-none-eabi is i386 arch
 build agent is x86_64 arch. gcc-arm-none-eabi-g++ fails if i386 arch is not installed. 
 ```
 sudo dpkg --add-architecture i386
