@@ -6,8 +6,8 @@ When you make/push any changes to a branch of your repo on github, travis will f
 
 Travis will also trigger a build if somebody sends you a pull-request. This allows you to determine if the pull request will break your build (i.e cause build/compiler errors when your merge it)...  
 
-### gitflow, new feature workflow
-Once your repo's is integrated with jenkins, when you wish to make changes to your repo, you can create "feature" branches, instead of committing directly to master repo. 
+### git workflow
+Once your repo's is integrated with jenkins, when you wish to make changes to your repo, you can create "feature" branches, instead of committing directly to master repo. see [Git-Branching-Branching-Workflows](https://git-scm.com/book/en/v1/Git-Branching-Branching-Workflows).
 
 ## Guide to integrating your teensy project on github with travis 
 Firstly, you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
