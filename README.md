@@ -1,4 +1,4 @@
-# teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=teensyduino-installer)](https://travis-ci.org/newdigate/teensy-blink)
+# teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
 A reference example and guide to integrating a teensy project on github with travis continuous integration
 
 * A quick-guide here: [quick guide](quick-guide.md)
