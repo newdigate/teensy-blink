@@ -22,7 +22,7 @@ matrix:
         - mv $HOME/arduino_ide $HOME/arduino
         - ln -s $HOME/arduino_ide $HOME/arduino
         - ls -lrt $HOME/arduino
-        - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino
+        - ./TeensyduinoInstall.linux64 --dir=$HOME
       script:
        - $HOME/arduino/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
 
