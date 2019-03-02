@@ -8,6 +8,7 @@ matrix:
       sudo: false
       install:
         - /build/install-teensyduino-1.45.sh
+        - $HOME/arduino_ide/arduino --install-library "Adafruit ST7735 and ST7789 Library"
       script:
         - $HOME/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
         
