@@ -1,7 +1,6 @@
 # teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
 A reference example and guide to integrating a teensy project on github with travis continuous integration
 
-## Cheat-sheet / quick guide
 A quick-guide to integrating a teensy 3.x github repo with travis is here... [Quick guide](quick-guide.md)
 
 ## General idea of continuous integration
