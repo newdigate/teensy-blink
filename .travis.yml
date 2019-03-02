@@ -3,7 +3,7 @@ matrix:
     - language: c
       sudo: false
       install:
-        - set -v
+        #- set -v
         - export ARDUINO_IDE_VERSION="1.8.8"
         - wget --quiet https://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
         - mkdir $HOME/arduino_ide
