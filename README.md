@@ -1,6 +1,27 @@
 # teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
+* a reference example of a teensy project on github integrated with travis continuous integration
+* a quick guide to implementing travis 
 
-## recipe for compiling teensy sketches in jenkins
+## guide to implementing travis in your github repo
+* you need a .travis file (.yaml format, see below) in the root folder of your repository []()
+  * specify build agent requirements, dependencies, install scripts
+``` yaml
+matrix:
+  include:
+    - language: c
+      sudo: false
+      install:
+        - source <(cat install-travis-ci-arduino.sh)
+      script:
+        - build_main_platforms
+        
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+```
+
+## some notes
  * need a "package_index" url for arduino board-manager
    * [package_teensyduino_index.json](https://github.com/newdigate/teensy-build/blob/master/package_teensyduino_index.json)
    * `arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs`
@@ -19,6 +40,7 @@
  
 ## links 
 * https://www.pjrc.com/teensy/td_download.html
+* https://learn.adafruit.com/continuous-integration-arduino-and-you/testing-your-project
 * https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
 * https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification
 * https://github.com/arduino/Arduino/blob/master/build/shared/manpage.adoc
