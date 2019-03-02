@@ -15,9 +15,9 @@ matrix:
         #- sudo apt-get install libc6:i386
         - curl -fsSL https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64 -o TeensyduinoInstall.linux64
         - chmod +x TeensyduinoInstall.linux64
-        #- /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
-        #- sleep 3
-        #- export DISPLAY=:1.0
+        - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
+        - sleep 3
+        - export DISPLAY=:1.0
         #- touch $HOME/arduino_ide/$ARDUINO_IDE_VERSION
         #- mv $HOME/arduino_ide $HOME/arduino
         #- ln -s $HOME/arduino_ide $HOME/arduino
