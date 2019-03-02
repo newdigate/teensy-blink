@@ -3,7 +3,7 @@ A reference example and guide to integrating a teensy project on github with tra
 
 When you make/push any changes to a branch of your repo on github, travis will fetch download the branch with changes and trigger a build. Travis will also trigger a build if somebody sends you a pull-request. This allows you to determine if the pull request will break your build (i.e cause build/compiler errors when your merge it)...  
 
-## guide to integrating your github teensy project with travis 
+## Guide to integrating your github teensy project with travis 
 Firstly, you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
 
 The .travis.yaml file allows you to specify build agent requirements, dependencies, install scripts for your repo:
@@ -27,7 +27,22 @@ notifications:
     on_failure: change
 ```
 
-## some notes
+Unfortunately, the .travis.yaml above doesn't work as is and a couple of few work-arounds are required:
+
+### no platforms_index.json file for teensy boards
+Teensyduino doesn't have an official platforms_xxx_index.json which we could add to ```boardsmanager.additional.urls```, at least, not one that I know of. This file would allow you to use the native arduino packaging and board-management system, rather than having an external installer. My initial approach was to teensyduino installer and run "headless". 
+``` sh
+curl -fsSL https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64 -o TeensyduinoInstall.linux64
+chmod +x TeensyduinoInstall.linux64
+./TeensyduinoInstall.linux64 -dir=$HOME/arduino_ide/arduino
+```
+but unfortunately, was not able to get it working... (perhaps its wrong architecture, need x86_64, or perhaps need to export display correctly for x-windows?)
+```
+Can't open display: 
+The command "./TeensyduinoInstall.linux64 -dir=$HOME/arduino_ide/arduino" failed and exited with 1 during .
+```
+
+### some notes
  * need a "package_index" url for arduino board-manager
    * [package_teensyduino_index.json](https://github.com/newdigate/teensy-build/blob/master/package_teensyduino_index.json)
    * `arduino --pref "boardsmanager.additional.urls=https://github.com/newdigate/teensy-build/raw/master/package_teensyduino_index.json" --save-prefs`
