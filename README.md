@@ -1,9 +1,12 @@
 # teensy-blink [![Build Status](https://travis-ci.org/newdigate/teensy-blink.svg?branch=master)](https://travis-ci.org/newdigate/teensy-blink)
-* a reference example and guide to integrating a teensy project on github with travis continuous integration
+a reference example and guide to integrating a teensy project on github with travis continuous integration
+
+When you make/push any changes to a branch of your repo on github, travis will trigger a build of the branch. Travis will also trigger a build if somebody sends you a pull-request. That will allow you to determine if the pull request will cause your repo to fail when compiling.  
 
 ## guide to integrating your github teensy project with travis 
-* you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
-  * specify build agent requirements, dependencies, install scripts
+Firstly, you need a [.travis.yaml](https://github.com/newdigate/teensy-blink/blob/master/.travis.yml) (.yaml format) in the root folder of your repository 
+
+The .travis.yaml file allows you to specify build agent requirements, dependencies, install scripts for your repo:
 ``` yaml
 matrix:
   include:
