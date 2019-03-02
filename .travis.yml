@@ -2,7 +2,7 @@ matrix:
   include:
     - language: c
       sudo: false
-      script:
+      install:
         - set -v
         - export ARDUINO_IDE_VERSION="1.8.7"
         - wget --quiet https://downloads.arduino.cc/arduino-$ARDUINO_IDE_VERSION-linux64.tar.xz
@@ -18,7 +18,10 @@ matrix:
         - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
         - sleep 3
         - export DISPLAY=:1.0
-        - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino
+        - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide
+      script:
+       - $HOME/arduino_ide/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
+
         
 notifications:
   email:
