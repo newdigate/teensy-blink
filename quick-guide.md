@@ -1,6 +1,6 @@
 # teensy github travis integration quick guide
 **create ```.travis.yaml``` file in root dir of your repo** 
-* substitute ```blink/blink.ino``` with your .ino sketch file
+* ~~substitute ```blink/blink.ino``` with your .ino sketch file~~ (build-sketches.sh will find all .ino and .pde files)
 * if required, add any libraries which are not packaged with teensyduino and/or aduino; eg "Adafruit ST7735 and ST7789 Library" below...
 ``` yaml
 matrix:
@@ -19,9 +19,10 @@ matrix:
         - sleep 3
         - export DISPLAY=:1.0
         - ./TeensyduinoInstall.linux64 --dir=$HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION
-        - $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --install-library "Adafruit ST7735 and ST7789 Library"
+        #- $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --install-library "Adafruit ST7735 and ST7789 Library"
       script:
-        - $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino 
+        #- $HOME/arduino_ide/arduino-$ARDUINO_IDE_VERSION/arduino --verify --verbose --board "teensyduino:avr:teensy36:usb=serial,speed=180,opt=o2std,keys=en-us" blink/blink.ino
+        - source build-sketches.sh
 
 notifications:
   email:
